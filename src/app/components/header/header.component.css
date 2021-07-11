@@ -1,0 +1,20 @@
+
+.avatar {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.user-name {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 7px 18px -5px rgba(0,0,0,0.75);
+}

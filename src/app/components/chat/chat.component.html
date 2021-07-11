@@ -1,0 +1,15 @@
+
+<div class="chat-messages" id="chat-messages">
+  <li class="list-group-item" *ngFor="let message of messages">
+    {{ message.de }} : {{ message.body }}
+  </li>
+</div>
+
+<form (ngSubmit)="send()">
+  <input type="text"
+         [(ngModel)]="message"
+         class="form-control chat-input"
+         name="message"
+         placeholder="comment..."
+         autofocus autocomplete="off">
+</form>

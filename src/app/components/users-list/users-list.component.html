@@ -1,0 +1,17 @@
+
+<ul class="list-group mt-list" style="height: 250px; overflow: scroll;">
+  <li class="list-group-item" *ngFor="let user of activeUsersObs | async; let i = index;">
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-2">
+        <img [src]="avatars[user.avatar]" alt="Avatar" class="avatar">
+      </div>
+      <div class="col-lg-10 col-md-9 col-sm-10">
+        {{ user.name }}
+        <br>
+        <span class="badge badge-pill bg-info">
+          {{ user.id }}
+        </span>
+      </div>
+    </div>
+  </li>
+</ul>

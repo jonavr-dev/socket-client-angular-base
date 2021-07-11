@@ -1,0 +1,15 @@
+
+<div class="row reactions">
+  <div id="loveit" class="col reaction" (click)="send('loveit')">
+    <img src="assets/loveit.png" alt="LoveIt" class="avatar">
+    <div style="text-align: center">{{ reactions.loveit }}</div>
+  </div>
+  <div id="applause" class="col reaction" (click)="send('applause')">
+    <img src="assets/applause.png" alt="Applause" class="avatar">
+    <div style="text-align: center">{{ reactions.applause }}</div>
+  </div>
+  <div id="doubt" class="col reaction" (click)="send('doubt')">
+    <img src="assets/doubt.png" alt="Doubt" class="avatar">
+    <div style="text-align: center">{{ reactions.doubt }}</div>
+  </div>
+</div>

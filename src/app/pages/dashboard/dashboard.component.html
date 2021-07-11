@@ -1,0 +1,18 @@
+
+<app-header (showAction)="setShowStatus($event)"></app-header>
+
+<div class="row">
+  <div class="col-lg-4 col-md-5">
+    <app-users-list *ngIf="showList"></app-users-list>
+  </div>
+
+  <div class="col-lg-7 col-md-7 col-sm-10">
+    <app-chat></app-chat>
+  </div>
+
+  <div class="col-lg-1 col-md-12 col-sm-2">
+    <app-reactions class="float-end"></app-reactions>
+  </div>
+</div>
+
+<app-footer></app-footer>
