@@ -7,7 +7,6 @@ import {WebsocketService} from '../../services/websocket.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
   constructor(public wsService: WebsocketService) { }
 
   ngOnInit(): void {

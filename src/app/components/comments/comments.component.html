@@ -1,0 +1,27 @@
+
+<div class="content-messages" id="comments-messages">
+    <li class="list-group-item" *ngFor="let message of messages">
+        <ng-container *ngIf="message.from.id !== userConnected?.id">
+            <span class="badge badge-pill bg-success">
+              {{ message.from?.name }}
+            </span>
+            : {{ message?.body }}
+        </ng-container>
+
+        <ng-container *ngIf="message.from.id === userConnected?.id">
+            <span class="badge badge-pill bg-secondary">
+              Me
+            </span>
+            : {{ message?.body }}
+        </ng-container>
+    </li>
+</div>
+
+<form (ngSubmit)="send()">
+    <input type="text"
+           [(ngModel)]="message"
+           class="form-control content-input"
+           name="message"
+           placeholder="comment..."
+           autofocus autocomplete="off">
+</form>

@@ -1,10 +1,10 @@
 
 export class User {
+  public id: string;
   public name: string;
-  public avatar: number;
 
-  constructor(name: string, avatar: number) {
+  constructor(id: string, name: string) {
+    this.id = id;
     this.name = name;
-    this.avatar = avatar;
   }
 }

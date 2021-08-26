@@ -1,6 +1,8 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ChatService} from '../../services/chat.service';
+import {WebsocketService} from '../../services/websocket.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-users-list',
@@ -8,28 +10,31 @@ import {ChatService} from '../../services/chat.service';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  @Output()
-  myAvatar = new EventEmitter<number>();
   activeUsersObs: Observable<any>;
-  selectedAvatar = '';
-  avatars = [
-    'assets/animals_01.jpg',
-    'assets/animals_02.jpg',
-    'assets/animals_03.jpg',
-    'assets/animals_04.jpg',
-    'assets/animals_05.jpg',
-    'assets/animals_06.jpg',
-    'assets/animals_07.jpg',
-    'assets/animals_08.jpg',
-    'assets/animals_09.jpg'
-  ];
+  connectedUser: User;
+  configuredUser = false;
 
   constructor(
-    public chatService: ChatService
+    public chatService: ChatService,
+    public wsService: WebsocketService
   ) { }
 
   ngOnInit(): void {
     this.activeUsersObs = this.chatService.getActiveUsers();
     this.chatService.emitActiveUsers();
+
+    this.activeUsersObs
+        .subscribe(list => {
+          if (!this.configuredUser) {
+            this.connectedUser = {
+              id: list[list.length - 1].id,
+              name: list[list.length - 1].name,
+            };
+
+            this.wsService.setUser(this.connectedUser);
+
+            this.configuredUser = true;
+          }
+        });
   }
 }

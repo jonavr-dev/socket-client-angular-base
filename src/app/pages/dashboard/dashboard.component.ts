@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {WebsocketService} from '../../services/websocket.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,17 +6,8 @@ import {WebsocketService} from '../../services/websocket.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  showList = true;
-  username = '';
-
-  constructor(
-    public wsService: WebsocketService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  setShowStatus(state: boolean): void {
-    this.showList = state;
   }
 }

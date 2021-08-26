@@ -11,13 +11,13 @@ footer {
   text-align: right;
 }
 
-.chat-messages {
+.content-messages {
   height: 200px;
   border: 1px solid gray;
   border-radius: 5px;
   overflow-y: scroll;
 }
 
-.chat-input {
+.content-input {
   margin-top: 10px;
 }
