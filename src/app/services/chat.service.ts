@@ -10,6 +10,10 @@ export class ChatService {
     private wsService: WebsocketService
   ) { }
 
+  emitActiveUsers(): void {
+    this.wsService.emit('get-users');
+  }
+
   sendMessage(message: string): void {
     const payload = {
       from: this.wsService.getUser(),
@@ -19,15 +23,11 @@ export class ChatService {
     this.wsService.emit('message', payload);
   }
 
-  getMessage(): Observable<any> {
-    return this.wsService.listen('new-message');
-  }
-
   getActiveUsers(): Observable<any> {
     return this.wsService.listen('active-users');
   }
 
-  emitActiveUsers(): void {
-    this.wsService.emit('get-users');
+  getMessage(): Observable<any> {
+    return this.wsService.listen('new-message');
   }
 }
