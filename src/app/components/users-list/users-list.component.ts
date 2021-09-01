@@ -21,7 +21,6 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeUsersObs = this.chatService.getActiveUsers();
-    this.chatService.emitActiveUsers();
 
     this.activeUsersObs
         .subscribe(list => {
@@ -36,5 +35,7 @@ export class UsersListComponent implements OnInit {
             this.configuredUser = true;
           }
         });
+
+    this.chatService.emitActiveUsers();
   }
 }
