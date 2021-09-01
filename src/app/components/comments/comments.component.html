@@ -5,14 +5,18 @@
             <span class="badge badge-pill bg-success">
               {{ message.from?.name }}
             </span>
-            : {{ message?.body }}
+            <span class="other-message">
+                {{ message?.body }}
+            </span>
         </ng-container>
 
-        <ng-container *ngIf="message.from.id === userConnected?.id">
+        <ng-container *ngIf="message.from.id === userConnected?.id" class="me-message">
             <span class="badge badge-pill bg-secondary">
               Me
             </span>
-            : {{ message?.body }}
+            <span class="me-message">
+                {{ message?.body }}
+            </span>
         </ng-container>
     </li>
 </div>
